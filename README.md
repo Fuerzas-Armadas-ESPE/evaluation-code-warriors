@@ -20,6 +20,7 @@ graph TD;
   D --> O[Capturas de pantalla o vdeos demostrativos]
   N --> P[Configuración y ejecución del proyecto]
 ```
+
 ## Evaluación
 
 Se evalúa la necesidad de desarrollar un sistema de gestión de cursos para docentes.
