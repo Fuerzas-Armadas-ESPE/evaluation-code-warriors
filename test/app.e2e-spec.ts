@@ -3,29 +3,31 @@ import { INestApplication } from '@nestjs/common';
 import request from 'supertest';
 import { AppModule } from './../src/app.module';
 import { beforeEach, describe, it } from 'node:test';
+import { CourseSchema } from 'src/courses/course.model';
+import { ClassSchema } from 'src/classes/class.model';
 
 describe('AppController (e2e)', () => {
-  let app: INestApplication;
+    let app: INestApplication;
 
-  beforeEach(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
-    }).compile();
+    beforeEach(async () => {
+        const moduleFixture: TestingModule = await Test.createTestingModule({
+            imports: [AppModule],
+        }).compile();
 
-    app = moduleFixture.createNestApplication();
-    await app.init();
-  });
+        app = moduleFixture.createNestApplication();
+        await app.init();
+    });
 
-  it('/ (GET)', () => {
-    request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
-  });
+    it('/ (GET)', () => {
+        request(app.getHttpServer())
+            .get('/')
+            .expect(200)
+            .expect('Hello World!');
+    });
 
-  it('/ (GET)', () => {
-    request(app.getHttpServer())
-      .get('/posts')
-      .expect(200)
-  });
+    it('/ (GET)', () => {
+        request(app.getHttpServer())
+            .get('/courses')
+            .expect(200)
+    });
 });
